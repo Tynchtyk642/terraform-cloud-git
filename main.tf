@@ -15,3 +15,11 @@ resource "aws_instance" "condition" {
     Name = "${var.env}-ec2-${var.name}"
   }
 }
+
+variable "env" {
+
+}
+
+variable "name" {
+
+}
