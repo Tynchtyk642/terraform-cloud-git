@@ -13,7 +13,16 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_instance" "condition" {
   ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t3.medium"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "${var.env}-ec2-${var.name}"
+  }
+}
+
+resource "aws_instance" "second" {
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = "t3.micro"
 
   tags = {
     Name = "${var.env}-ec2-${var.name}"
